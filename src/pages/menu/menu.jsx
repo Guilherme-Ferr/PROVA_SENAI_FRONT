@@ -1,4 +1,4 @@
-import { BooksContainer, Container } from "./styles";
+import { BookCard, BooksContainer, Container } from "./styles";
 import { api } from "../../services/api";
 
 export async function Menu() {
@@ -8,13 +8,13 @@ export async function Menu() {
     headers: { Authorization: `Bearer ${token}` },
   };
 
-  const bodyParameters = {
-    key: "value",
-  };
-  const response = await api.get("/books", bodyParameters, config);
-  console.log("🚀 ~ file: menu.jsx ~ line 18 ~ Menu ~ response", response);
+  const response = await api.get("/books", config);
 
   const books = response.data.books;
+
+  {
+    /* |tentando passar o token na requisição mas sem sucesso| */
+  }
 
   return (
     <Container>
@@ -22,8 +22,9 @@ export async function Menu() {
         <h1>Escolha entre os livros disponiveis</h1>
 
         {/*mapeando a lista para renderizar cada livro dentro de uma div card*/}
+
         {books.map((book) => {
-          <div>{book}</div>;
+          <BookCard>{book}</BookCard>;
         })}
 
         {/*cada card tera dois icones cada um com uma opção para delete e update */}

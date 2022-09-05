@@ -21,3 +21,15 @@ export const BooksContainer = styled.div`
   font-family: "arial";
   padding-left: 50px;
 `;
+
+export const BookCard = styled.div`
+  background-color: gray;
+  width: 100%;
+  height: 100px;
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  align-items: center;
+  font-family: "arial";
+`;
